@@ -14,4 +14,24 @@ public class Permissao {
 
     @ManyToMany(mappedBy = "permissoes")
     private Set<Usuario> usuarios = new HashSet<>();
+
+    public Permissao() {
+
+    }
+    public Permissao(String tipoDePermissao) {
+        this.tipoDePermissao = tipoDePermissao;
+    }
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getTipoDePermissao() {
+        return tipoDePermissao;
+    }
+
+    public void setTipoDePermissao(String tipoDePermissao) {
+        this.tipoDePermissao = tipoDePermissao;
+    }
 }

@@ -15,4 +15,32 @@ public class Autor {
 
     @ManyToMany(mappedBy = "autores")
     private Set<Livro> livros = new HashSet<>();
+
+    public Autor() {
+
+    }
+    public Autor(String nome, String nacionalidade) {
+        this.nome = nome;
+        this.nacionalidade = nacionalidade;
+    }
+
+
+    // Métodos para manipulação do conjunto de livros
+    public Set<Livro> getLivros() {
+        return livros;
+    }
+
+    public void setLivros(Set<Livro> livros) {
+        this.livros = livros;
+    }
+
+    public void adicionarLivro(Livro livro) {
+        this.livros.add(livro);
+        livro.getAutores().add(this);
+    }
+
+    public void removerLivro(Livro livro) {
+        this.livros.remove(livro);
+        livro.getAutores().remove(this);
+    }
 }
