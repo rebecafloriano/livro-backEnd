@@ -1,9 +1,8 @@
 package com.example.app.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Categoria {
@@ -12,6 +11,8 @@ public class Categoria {
     private Integer id;
     private String nome;
 
+    @OneToMany(mappedBy = "categoria")
+    private List<Livro> livros;
 
     public Categoria () {
 

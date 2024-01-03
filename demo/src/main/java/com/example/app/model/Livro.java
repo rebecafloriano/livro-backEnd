@@ -3,6 +3,7 @@ package com.example.app.model;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -32,8 +33,7 @@ public class Livro {
             joinColumns = @JoinColumn(name= "livroId"),
             inverseJoinColumns = @JoinColumn(name= "autorId")
     )
-    // declara um atributo chamado autores na classe Livro e nao permite elementos duplicados
-    private Set<Autor> autores = new HashSet<>();
+    private Set<Autor> autores;
 
     public Livro() {
 

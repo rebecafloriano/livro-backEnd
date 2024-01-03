@@ -3,9 +3,11 @@ package com.example.app.model;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
+
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,8 +23,7 @@ public class Usuario {
             joinColumns = @JoinColumn(name= "usuarioId"),
             inverseJoinColumns = @JoinColumn(name= "permissaoId")
     )
-    // declara um atributo chamado permissoes na classe Usuario e nao permite elementos duplicados
-    private Set<Permissao> permissoes = new HashSet<>();
+    private Set<Permissao> permissoes;
 
 
     // Contrutores
@@ -76,9 +77,7 @@ public class Usuario {
         this.telefone = telefone;
     }
 
-    public void setPermissoes(Set<Permissao> permissoes) {
-        this.permissoes = permissoes;
-    }
+
 
     // Métodos Específicos
     

@@ -2,8 +2,10 @@ package com.example.app.model;
 
 import jakarta.persistence.*;
 
-import java.util.HashSet;
+
+import java.util.List;
 import java.util.Set;
+
 
 @Entity
 public class Permissao {
@@ -13,7 +15,7 @@ public class Permissao {
     private String tipoDePermissao;
 
     @ManyToMany(mappedBy = "permissoes")
-    private Set<Usuario> usuarios = new HashSet<>();
+    private Set<Usuario> usuarios;
 
     public Permissao() {
 
