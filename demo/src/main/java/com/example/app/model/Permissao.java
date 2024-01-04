@@ -8,11 +8,15 @@ import java.util.Set;
 
 
 @Entity
+@Table(name = "permissao")
 public class Permissao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
-    private String tipoDePermissao;
+
+    @Column(name = "permissao")
+    private String permissao;
 
     @ManyToMany(mappedBy = "permissoes")
     private Set<Usuario> usuarios;
@@ -20,8 +24,8 @@ public class Permissao {
     public Permissao() {
 
     }
-    public Permissao(String tipoDePermissao) {
-        this.tipoDePermissao = tipoDePermissao;
+    public Permissao(String permissao) {
+        this.permissao = permissao;
     }
 
 
@@ -29,11 +33,11 @@ public class Permissao {
         return id;
     }
 
-    public String getTipoDePermissao() {
-        return tipoDePermissao;
+    public String getPermissao() {
+        return permissao;
     }
 
-    public void setTipoDePermissao(String tipoDePermissao) {
-        this.tipoDePermissao = tipoDePermissao;
+    public void setPermissao(String permissao) {
+        this.permissao = permissao;
     }
 }
