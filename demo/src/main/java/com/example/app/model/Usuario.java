@@ -19,7 +19,7 @@ public class Usuario {
 
     @ManyToMany
     @JoinTable(
-            name = "UsuarioPermissao",
+            name = "Usuario_Permissao",
             joinColumns = @JoinColumn(name= "usuarioId"),
             inverseJoinColumns = @JoinColumn(name= "permissaoId")
     )
